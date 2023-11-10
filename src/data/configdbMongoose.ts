@@ -3,10 +3,7 @@ import mongoose from 'mongoose';
 
 const url = 'mongodb+srv://emiliogalimberty:DykCvZgFNarwXjFG@starwarsclusterapi.xhvj1ul.mongodb.net/?retryWrites=true&w=majority';
 
-mongoose.connect(url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(url);
 
 const db = mongoose.connection;
 db.on('error', (error) => {

@@ -1,5 +1,5 @@
 
-import mongoose from "../data/configdbMongoose.js"; 
+import mongoose from "../data/configdbMongoose"; 
 
 const peopleSchema = new mongoose.Schema({
   name: String,
