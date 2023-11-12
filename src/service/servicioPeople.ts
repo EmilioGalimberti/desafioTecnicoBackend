@@ -25,7 +25,7 @@ const getPeopleByName = async (req: Request, res: Response)=>{
             res.json(personFound)
             res.status(200)
         }else{
-            res.status(404).send({mensaje: "person not found"})
+            res.status(404).send({mensaje: "Person inexistente! (404) no se encontro"})
         }
     }
     catch(error: any){
