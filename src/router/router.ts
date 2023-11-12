@@ -1,23 +1,21 @@
-import { Router } from "express";
-import {People,Films,Planets,Species,Vehicles,Starships,} from "../models/models";
+import { Router, Request, Response } from "express";
+import servicioPeople from "../service/servicioPeople"
+import servicioFilms from "../service/servicioFilms";
+import servicioPlanets from "../service/servicioPlanets";
+import servicioSpecies from "../service/servicioSpecies";
+import servicoVehicles from "../service/servicoVehicles";
+import servicioStarships from "../service/servicioStarships";
 
 export const router = Router()
 
-
-router.get('/people', async (req, res) => {
-  try {
-    const peopleFound = await People.find();
-    if (peopleFound){
-        res.json(peopleFound)
-        res.status(200)
-    } else{
-        res.status(404).send({mensaje: "Alumno no encontrado"})
-    }
-  } catch (error) {
-    console.error('Error al obtener personas:', error);
-    res.status(500).send('Error interno del servidor');
-  }
-});
-
+router.get('/people', servicioPeople.getPeople);
+router.get("/people/:name", servicioPeople.getPeopleByName );
+router.get('/films', servicioFilms.getFilms);   
+router.get("/films/:episode_id" , servicioFilms.getFilmByidEpisode);
+router.get('/planets', servicioPlanets.getPlanets);
+router.get("/planets/:climate" , servicioPlanets.getPlanetByClimate)
+router.get("/species", servicioSpecies.getSpecies)
+router.get('/vehicles', servicoVehicles.getVehicles);
+router.get('/starships', servicioStarships.getStarships);
 
 export default router;

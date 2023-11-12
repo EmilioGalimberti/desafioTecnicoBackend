@@ -1,7 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import cron from "node-cron";
-import {
-  People,Films,Planets,Species,Vehicles,Starships} from "../models/models";
+import {People,Films,Planets,Species,Vehicles,Starships} from "../models/models";
 
 // Programa un cron job para sincronizar datos
 export const sincronizarDB = cron.schedule('* * 23 * *', async () => {
