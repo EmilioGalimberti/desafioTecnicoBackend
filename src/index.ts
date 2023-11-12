@@ -1,6 +1,6 @@
 import  express  from "express";
 import cors from "cors";
-//mport router from "./routes/router.js";
+import router from "./router/router";
 import { sincronizarDB } from "./service/sincronizacion";
 
 
@@ -10,7 +10,7 @@ app.use(express.json());
 
 const port = 3000;
 
-//app.use('/',  router)
+app.use('/',  router)
 
 app.listen(port, async() =>{
     console.log("Inicio de api puerto ",port)

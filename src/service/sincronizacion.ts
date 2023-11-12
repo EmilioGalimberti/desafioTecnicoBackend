@@ -1,16 +1,10 @@
 import axios, { AxiosResponse } from "axios";
 import cron from "node-cron";
 import {
-  People,
-  Films,
-  Planets,
-  Species,
-  Vehicles,
-  Starships,
-} from "../models/models";
+  People,Films,Planets,Species,Vehicles,Starships} from "../models/models";
 
 // Programa un cron job para sincronizar datos
-export const sincronizarDB = cron.schedule('* * * * *', async () => {
+export const sincronizarDB = cron.schedule('* * 23 * *', async () => {
   try {
     console.log("Sincronizando db con api");
     const peopleData = await getAllResources('https://swapi.dev/api/people/');

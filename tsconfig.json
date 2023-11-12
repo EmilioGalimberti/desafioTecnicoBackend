@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "src/**/*.ts"
+, "src/index.ts", "src/data/configdbMongoose.ts"  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
