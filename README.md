@@ -43,7 +43,8 @@ Este test va a estar evaluado de la siguiente manera:
 |Ruteo|1 sp|||
 |Test de endpoints + endpoints |1 sp|||
 |Documentacion|1 sp|||
-|total story points = 7|||Estimado para una semana de desarrollo|
+|total story points = 7|
+|Estimado para una semana de desarrollo|
 
 
 ## Documentacion de codigo
