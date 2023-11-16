@@ -1,8 +1,11 @@
+/**
+ * Servicios relacionados con la entidad Vehicles.
+ * obtener listado de todas las vehicles o filtradas por nombre y/o modelo
+ * http://localhost:3000/vehicles?name=Value1&model=Value2
+*/
 import {Request, Response } from "express";
 import { Vehicles, IVehicles } from "../models/models";
 
-
-//http://localhost:3000/vehicles?name=Value1&model=Value2
 const getVehicles = async (req: Request, res: Response) => {
     try {
       const { name, model } = req.query;

@@ -1,3 +1,8 @@
+/**
+ * Definición de las rutas de la API usando Express Router.
+
+*/
+
 import { Router, Request, Response } from "express";
 import servicioPeople from "../service/servicioPeople"
 import servicioFilms from "../service/servicioFilms";

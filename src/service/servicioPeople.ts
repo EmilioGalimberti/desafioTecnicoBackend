@@ -1,3 +1,8 @@
+/**
+ * Servicios relacionados con la entidad People.
+ * obtener listado de todas las personas o filtradas por nombre
+*/
+
 import {Request, Response } from "express";
 import { People, IPeople } from "../models/models";
 

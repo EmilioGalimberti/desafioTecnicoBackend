@@ -1,9 +1,12 @@
+/**
+ * Funciones para sincronizar la base de datos con la API externa utilizando un cron job.
+*/
 import axios, { AxiosResponse } from "axios";
 import cron from "node-cron";
 import {People,Films,Planets,Species,Vehicles,Starships} from "../models/models";
 
-// Programa un cron job para sincronizar datos
-export const sincronizarDB = cron.schedule('* * * * *', async () => {
+// Programa un cron job para sincronizar datos cada 23hs
+export const sincronizarDB = cron.schedule('* * 23 * *', async () => {
   try {
     console.log("Sincronizando db con api");
     const peopleData = await getAllResources('https://swapi.dev/api/people/');
@@ -26,6 +29,12 @@ export const sincronizarDB = cron.schedule('* * * * *', async () => {
   }
 });
 
+/**
+ * Obtiene todos los recursos de una API paginada.
+ * @param apiUrl La URL de la API que proporciona los recursos paginados.
+ * @returns Una promesa que se resuelve con un array de recursos.
+ * @template T Tipo de los recursos que se obtendrán.
+ */
 async function getAllResources<T>(apiUrl: string): Promise<T[]> {
   let allResources: T[] = [];
   let currentPage = 1;
@@ -37,11 +46,10 @@ async function getAllResources<T>(apiUrl: string): Promise<T[]> {
       });
 
       allResources = allResources.concat(response.data.results);
-      
       // Actualiza la URL para la próxima página
       apiUrl = response.data.next;
-
       currentPage++;
+
     } catch (error: any) {
       console.error('Error fetching data:', error);
       break;
@@ -51,6 +59,12 @@ async function getAllResources<T>(apiUrl: string): Promise<T[]> {
   return allResources;
 }
 
+/**
+ * Crea registros en la base de datos a partir de un array de datos, evitando duplicados basándose en la propiedad 'url'.
+ * @param data Un array de datos que se desea agregar a la base de datos.
+ * @param Model El modelo de Mongoose que representa la colección en la base de datos.
+ * @template T Tipo de datos del array que se utilizará para crear registros en la base de datos.
+ */
 async function createInDb<T>(data: T[], Model: any) {
   const dataIterable = data;
   let countResources = 0;

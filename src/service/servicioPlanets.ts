@@ -1,3 +1,8 @@
+/**
+ * Servicios relacionados con la entidad Planets.
+ * obtener listado de todas las planetas o filtradas por clima
+*/
+
 import {Request, Response } from "express";
 import { Planets, IPlanets } from "../models/models";
 

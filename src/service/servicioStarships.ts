@@ -1,7 +1,11 @@
+/**
+ * Servicios relacionados con la entidad Starships.
+ * obtener listado de todas las naves o filtradas por nombre y/o modelo
+ * http://localhost:3000/starships?name=Value1&model=Value2
+*/
 import {Request, Response } from "express";
 import { Starships, IStarships } from "../models/models";
 
-//http://localhost:3000/starships?name=Value1&model=Value2
 const getStarships = async (req: Request, res: Response) => {
     try {
       const { name, model } = req.query;

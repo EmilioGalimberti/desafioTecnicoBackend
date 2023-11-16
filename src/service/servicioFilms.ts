@@ -1,3 +1,8 @@
+/**
+ * Servicios relacionados con la entidad Films.
+ * obtener listado de todas las peliculas o filtradas por episode_id
+*/
+
 import {Request, Response } from "express";
 import { Films, IFilms } from "../models/models";
 

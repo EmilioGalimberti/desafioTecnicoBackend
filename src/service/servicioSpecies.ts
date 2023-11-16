@@ -1,8 +1,14 @@
+/**
+ * Servicios relacionados con la entidad Species.
+ * obtener listado de todas las especies o filtradas por nombre y/o designation
+ * http://localhost:3000/species?name=Value1&designation=Value2
+*/
+
 import {Request, Response } from "express";
 import { Species, ISpecies } from "../models/models";
 
 
-//http://localhost:3000/species?name=Value1&designation=Value2
+
 const getSpecies = async (req: Request, res: Response) => {
     try {
       const { name, designation } = req.query;

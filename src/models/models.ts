@@ -1,4 +1,6 @@
-
+/**
+ * Definición de modelos de datos usando Mongoose.
+*/
 import mongoose from "../data/configdbMongoose"; 
 
 export interface IPeople extends mongoose.Document{
