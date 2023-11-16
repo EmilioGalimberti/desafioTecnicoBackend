@@ -15,7 +15,7 @@ const getSpecies = async (req: Request, res: Response) => {
       if (speciesFound && speciesFound.length > 0) {
         res.status(200).json(speciesFound);
       } else {
-        res.status(404).send({ mensaje: "Species no encontradas" });
+        res.status(404).send({ mensaje: "Specie inexistente! (404) no se encontro" });
       }
     } catch (error: any) {
       console.error('Error al obtener Species:', error);

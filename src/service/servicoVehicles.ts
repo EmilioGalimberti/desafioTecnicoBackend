@@ -2,7 +2,7 @@ import {Request, Response } from "express";
 import { Vehicles, IVehicles } from "../models/models";
 
 
-//http://localhost:3000/species?name=Value1&model=Value2
+//http://localhost:3000/vehicles?name=Value1&model=Value2
 const getVehicles = async (req: Request, res: Response) => {
     try {
       const { name, model } = req.query;

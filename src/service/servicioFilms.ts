@@ -25,7 +25,8 @@ const getFilmByidEpisode = async (req: Request, res: Response)=>{
             res.json(filmFound)
             res.status(200)
         }else{
-            res.status(404).send({mensaje: "film not found"})
+            res.status(404).send({mensaje: "Films inexistente! (404) no se encontro"})
+        
         }
     }
     catch(error: any){

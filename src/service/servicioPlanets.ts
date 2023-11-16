@@ -25,7 +25,7 @@ const getPlanetByClimate = async (req: Request, res: Response)=>{
             res.json(planetsFound)
             res.status(200)
         }else{
-            res.status(404).send({mensaje: "planets not found"})
+            res.status(404).send({mensaje: "planets inexistente! (404) no se encontro"})
         }
     }
     catch(error: any){

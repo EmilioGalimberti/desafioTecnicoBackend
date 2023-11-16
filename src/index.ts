@@ -1,3 +1,7 @@
+/**
+ * Archivo principal que inicia el servidor Express, configura middleware y define las rutas.
+*/
+
 import  express  from "express";
 import cors from "cors";
 import router from "./router/router";

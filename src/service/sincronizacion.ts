@@ -3,7 +3,7 @@ import cron from "node-cron";
 import {People,Films,Planets,Species,Vehicles,Starships} from "../models/models";
 
 // Programa un cron job para sincronizar datos
-export const sincronizarDB = cron.schedule('* * 23 * *', async () => {
+export const sincronizarDB = cron.schedule('* * * * *', async () => {
   try {
     console.log("Sincronizando db con api");
     const peopleData = await getAllResources('https://swapi.dev/api/people/');
@@ -29,23 +29,21 @@ export const sincronizarDB = cron.schedule('* * 23 * *', async () => {
 async function getAllResources<T>(apiUrl: string): Promise<T[]> {
   let allResources: T[] = [];
   let currentPage = 1;
-  let totalPages = 1;
 
-  while (currentPage <= totalPages) {
+  while (apiUrl) {
     try {
       const response: AxiosResponse = await axios.get(apiUrl, {
         params: { page: currentPage },
       });
 
       allResources = allResources.concat(response.data.results);
-      totalPages = Math.ceil(response.data.count / response.data.results.length);
+      
+      // Actualiza la URL para la próxima página
+      apiUrl = response.data.next;
+
       currentPage++;
     } catch (error: any) {
-      console.error('Error fetching data:', error.message);
-      console.error('Response data:', error.response?.data);
-      console.error('Response status:', error.response?.status);
-      console.error('Response headers:', error.response?.headers);
-      console.error("Error with URL:", apiUrl);
+      console.error('Error fetching data:', error);
       break;
     }
   }
