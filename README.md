@@ -161,3 +161,6 @@ To run tests, run the following command
   npm  test
 ```
 
+##Screenshot Cluster mongoDB
+![clusterMongo](https://github.com/EmilioGalimberti/desafioTecnicoBackend/assets/51717240/8ad5ecf1-c75b-4fa6-a7c9-5fd75f0341aa)
+
