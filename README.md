@@ -29,7 +29,7 @@ Este test va a estar evaluado de la siguiente manera:
 4. *Documentacion*: ¿La documentación es clara y concisa?
 
 
-# Resolucion de test
+# Resolucion
 
 ## Estimacion de tareas
 
